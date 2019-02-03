@@ -7,8 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
   @Input() label: string;
-  @Input() type: 'default' | 'primary' | 'warning' | 'danger';
-  @Input() icon: string;
+  @Input() type: 'default' | 'primary' | 'warn' | 'accent';
   @Input() disable: boolean;
 
   constructor() { }

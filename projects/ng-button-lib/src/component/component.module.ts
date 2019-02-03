@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 import { CoreModule } from './../core/core.module';
 import { ButtonComponent } from './button/button.component';
 
+
+const COMPONENT = [
+  ButtonComponent
+];
+
 @NgModule({
-  declarations: [ButtonComponent],
+  declarations: COMPONENT,
+  exports: COMPONENT,
   imports: [
-    CommonModule
+    CommonModule,
     CoreModule
   ]
 })

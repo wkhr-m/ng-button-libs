@@ -1,4 +1,3 @@
-<button class="hue-button {{type}}" [class.desable]="desable" wmRipple>
-  <i *ngIf="icon" class="icon {{icon}}"></i>
-  <span *ngIf="label">{{label}}</span>
+<button class="button {{type}}" [attr.disable]="disable" wmRipple>
+  <span *ngIf="label" class="label">{{label}}</span>
 </button>
