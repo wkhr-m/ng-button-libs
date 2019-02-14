@@ -1,18 +1,28 @@
-import { Directive, ElementRef, HostBinding, OnInit } from '@angular/core';
+import { Directive, ElementRef, HostBinding, Input, OnChanges, Renderer2, SimpleChanges } from '@angular/core';
 
 @Directive({
   selector: '[wmButton]'
 })
-export class ButtonDirective implements OnInit {
+export class ButtonDirective implements OnChanges {
+  @HostBinding('class.wm-button') class = true;
+  @Input() type: 'primary' | 'warn' | 'accent';
+  @Input() disable: boolean;
 
-  @HostBinding('class.wm-button') private button = true;
+  _type: string;
+
+  constructor(private elementRef: ElementRef,
+    private renderer: Renderer2) { }
 
 
-  @HostBinding('class') private class = 'wm-button';
-
-  constructor(private elementRef: ElementRef) { }
-
-  ngOnInit() {
-    (this.elementRef.nativeElement as HTMLElement).classList.add('wm-button');
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['type'] && this.type !== this._type) {
+      if (!!this.type) {
+        this.elementRef.nativeElement.classList.add(this.type);
+      }
+      if (!!this._type) {
+        this.elementRef.nativeElement.classList.remove(this._type);
+      }
+      this._type = this.type;
+    }
   }
 }
