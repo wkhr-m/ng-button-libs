@@ -1,3 +1,4 @@
-<button class="wm-button {{type}}" [attr.disable]="disable" wmRipple>
-  <span *ngIf="label" class="label">{{label}}</span>
+<button class="wm-button {{type}}" [disabled]="disabled">
+  <span *ngIf="label" class="wm-button-label">{{label}}</span>
+  <div class="wm-ripple" wmRipple [disabled]="disabled"></div>
 </button>
