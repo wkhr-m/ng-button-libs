@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "packagr": "ng-packagr -p projects/ng-button-lib/ng-package.json"
+    "packagr": "ng-packagr -p projects/ng-button-lib/ng-package.json",
+    "npm_pack": "cd dist/ng-button-lib && npm pack",
+    "package": "npm run packagr && npm run npm_pack"
   },
   "private": true,
   "dependencies": {
